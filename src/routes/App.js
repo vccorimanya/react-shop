@@ -1,7 +1,7 @@
 import React from "react";
 import { Login } from "../pages/Login";
 import { Layout } from "../containers/Layout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import {Home} from '../pages/Home'
 import { NotFound } from "../pages/NotFound";
 import { PasswordRecovery } from "../pages/PasswordRecobery";
@@ -20,22 +20,23 @@ const App = () => {
   return (
     <>
       <AppContext.Provider value={initialState}>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/password-recovery" element={<PasswordRecovery/>} />
-            <Route path="/send-email" element={<SendEmail/>} />
-            <Route path="/new-password" element={<NewPassword/>} />
-            <Route path="/account" element={<MyAccount/>} />
-            <Route path="/signup" element={<CreateAccount/>} />
-            <Route path="/checkout" element={<Checkout/>} />
-            <Route path="/orders" element={<Orders/>} />
-            <Route path="*" element={<NotFound/>} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+        <HashRouter>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/password-recovery" element={<PasswordRecovery/>} />
+              <Route path="/send-email" element={<SendEmail/>} />
+              <Route path="/new-password" element={<NewPassword/>} />
+              <Route path="/account" element={<MyAccount/>} />
+              <Route path="/signup" element={<CreateAccount/>} />
+              <Route path="/checkout" element={<Checkout/>} />
+              <Route path="/orders" element={<Orders/>} />
+              <Route path="*" element={<NotFound/>} />
+            </Routes>
+          </Layout>
+
+        </HashRouter>
     </AppContext.Provider>
     </>
   )
